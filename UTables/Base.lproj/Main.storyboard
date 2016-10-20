@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,15 +36,34 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="HWj-Xm-2If"/>
                                 </connections>
                             </tableView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="MTd-iB-ALz">
+                                <connections>
+                                    <action selector="valueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="hVN-Oh-I05"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rza-fD-doW">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cyh-NP-ayV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5DF-aM-xL3"/>
-                            <constraint firstAttribute="trailing" secondItem="cyh-NP-ayV" secondAttribute="trailing" id="CS8-DM-wJ9"/>
-                            <constraint firstItem="cyh-NP-ayV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="MNW-Gl-SO1"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cyh-NP-ayV" secondAttribute="bottom" id="aS8-Bo-ndR"/>
+                            <constraint firstItem="rza-fD-doW" firstAttribute="leading" secondItem="MTd-iB-ALz" secondAttribute="trailing" constant="8" id="3zg-ib-LIf"/>
+                            <constraint firstItem="MTd-iB-ALz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="8hA-Nd-28L"/>
+                            <constraint firstItem="cyh-NP-ayV" firstAttribute="top" secondItem="MTd-iB-ALz" secondAttribute="bottom" constant="8" id="ARJ-by-72b"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cyh-NP-ayV" secondAttribute="bottom" id="Lw9-mJ-VxH"/>
+                            <constraint firstItem="MTd-iB-ALz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ZMP-C2-o95"/>
+                            <constraint firstItem="cyh-NP-ayV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dLe-hR-Wg7"/>
+                            <constraint firstAttribute="trailing" secondItem="rza-fD-doW" secondAttribute="trailing" constant="8" id="eIq-Kh-A0E"/>
+                            <constraint firstAttribute="trailing" secondItem="cyh-NP-ayV" secondAttribute="trailing" id="fOg-iF-vrD"/>
+                            <constraint firstItem="rza-fD-doW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="jhc-ZO-lqk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentTableData" destination="rza-fD-doW" id="PFQ-9c-YUQ"/>
+                        <outlet property="dataTable" destination="cyh-NP-ayV" id="8xB-PU-zvY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

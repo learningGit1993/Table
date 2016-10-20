@@ -10,19 +10,23 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate {
 
-    var names : [String] = ["Raj", "John", "Ruel"];
+    let tableRows : Int = 10
+    var current : Int = 1
+    
+    @IBOutlet weak var currentTableData: UILabel!
+    @IBOutlet weak var dataTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        return tableRows
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = names[indexPath.row]
+        cell.textLabel?.text = "\((indexPath.row + 1) * current)"
         return cell
     }
     
@@ -31,6 +35,11 @@ class ViewController: UIViewController, UITableViewDelegate {
         super.didReceiveMemoryWarning()
     }
 
+    @IBAction func valueChanged(_ sender: UISlider) {
+        current = Int(sender.value)
+        currentTableData.text = "\(current)"
+        self.dataTable.reloadData()
+    }
 
 }
 
